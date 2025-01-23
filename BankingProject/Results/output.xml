@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-15T20:04:31.193287" rpa="false" schemaversion="5">
+<suite id="s1" name="Customer" source="G:\PythonPractice\BankingProject\Tests\Customer">
+<suite id="s1-s1" name="CustomerTests" source="G:\PythonPractice\BankingProject\Tests\Customer\CustomerTests.robot">
+<test id="s1-s1-t1" name="Test Customer Login Navigation" line="14">
+<kw name="Open Browser And Navigate To Login Page" owner="Common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:31.344464" level="INFO">Opening browser 'chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-15T20:04:31.344269" elapsed="2.008439"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-15T20:04:33.352962" elapsed="0.037041"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BANK_MANAGER_LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:33.390366" elapsed="0.218635"/>
+</kw>
+<status status="PASS" start="2025-01-15T20:04:31.343741" elapsed="2.265398"/>
+</kw>
+<kw name="Click Customer Login" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:33.609894" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Customer Login')]'.</msg>
+<arg>${CUSTOMER_LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:33.609712" elapsed="0.048665"/>
+</kw>
+<doc>Clicks the Customer Login button.</doc>
+<status status="PASS" start="2025-01-15T20:04:33.609445" elapsed="0.049045"/>
+</kw>
+<kw name="Verify Customer Login Page" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:33.659038" elapsed="0.212830"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:33.885143" level="INFO">Element 'id=userSelect' is displayed.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-15T20:04:33.872056" elapsed="0.013174"/>
+</kw>
+<doc>Verifies the Customer Login page is loaded.</doc>
+<status status="PASS" start="2025-01-15T20:04:33.658787" elapsed="0.226525"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-15T20:04:33.885647" elapsed="2.112149"/>
+</kw>
+<doc>Verify that the Customer Login button works correctly.</doc>
+<tag>Login</tag>
+<status status="PASS" start="2025-01-15T20:04:31.343066" elapsed="4.655123"/>
+</test>
+<test id="s1-s1-t2" name="Test Customer Logout" line="22">
+<kw name="Open Browser And Navigate To Login Page" owner="Common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:35.999950" level="INFO">Opening browser 'chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-15T20:04:35.999790" elapsed="1.946249"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-15T20:04:37.946222" elapsed="0.029221"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BANK_MANAGER_LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:37.975670" elapsed="0.227371"/>
+</kw>
+<status status="PASS" start="2025-01-15T20:04:35.999591" elapsed="2.203592"/>
+</kw>
+<kw name="Click Customer Login" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:38.204417" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Customer Login')]'.</msg>
+<arg>${CUSTOMER_LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:38.203789" elapsed="0.050632"/>
+</kw>
+<doc>Clicks the Customer Login button.</doc>
+<status status="PASS" start="2025-01-15T20:04:38.203516" elapsed="0.051010"/>
+</kw>
+<kw name="Select Customer" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:38.255018" elapsed="0.214333"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:38.469753" level="INFO">Selecting options from selection list 'id=userSelect' by label Hermoine Granger.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<arg>${customer_name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-01-15T20:04:38.469522" elapsed="0.044891"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:38.514797" level="INFO">Clicking element 'xpath=//button[text()='Login']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:38.514582" elapsed="0.045654"/>
+</kw>
+<arg>Hermoine Granger</arg>
+<status status="PASS" start="2025-01-15T20:04:38.254785" elapsed="0.305555"/>
+</kw>
+<kw name="Perform Deposit" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DEPOSIT_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:38.560863" elapsed="0.212819"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:38.774132" level="INFO">Clicking element 'xpath=//button[contains(text(),'Deposit')]'.</msg>
+<arg>${DEPOSIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:38.773880" elapsed="0.038061"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DEPOSIT_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:38.812148" elapsed="0.216379"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:39.028974" level="INFO">Typing text '1000' into text field 'xpath=//input[@placeholder='amount']'.</msg>
+<arg>${DEPOSIT_INPUT}</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:39.028749" elapsed="0.065841"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:39.094967" level="INFO">Clicking element 'xpath=//button[text()='Deposit']'.</msg>
+<arg>${DEPOSIT_SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:39.094755" elapsed="0.049653"/>
+</kw>
+<arg>1000</arg>
+<status status="PASS" start="2025-01-15T20:04:38.560627" elapsed="0.583893"/>
+</kw>
+<kw name="Logout Customer" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:39.145217" level="INFO">Clicking element 'xpath=//button[text()='Logout']'.</msg>
+<arg>${LOGOUT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:39.145058" elapsed="0.047867"/>
+</kw>
+<doc>Logs out the currently logged-in customer.</doc>
+<status status="PASS" start="2025-01-15T20:04:39.144802" elapsed="0.048371"/>
+</kw>
+<kw name="Verify Customer Logout" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:39.193866" elapsed="0.005231"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:39.211712" level="INFO">Element 'id=userSelect' is displayed.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-15T20:04:39.199247" elapsed="0.012556"/>
+</kw>
+<doc>Verify the customer is logged out successfully.</doc>
+<status status="PASS" start="2025-01-15T20:04:39.193569" elapsed="0.018319"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-15T20:04:39.212201" elapsed="2.125845"/>
+</kw>
+<doc>Verify that a customer can log out successfully.</doc>
+<status status="PASS" start="2025-01-15T20:04:35.999163" elapsed="5.339277"/>
+</test>
+<test id="s1-s1-t3" name="Test Customer Login And Deposit" line="32">
+<kw name="Open Browser And Navigate To Login Page" owner="Common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:41.340309" level="INFO">Opening browser 'chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-15T20:04:41.340096" elapsed="1.962628"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-15T20:04:43.302892" elapsed="0.030884"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BANK_MANAGER_LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:43.334116" elapsed="0.422992"/>
+</kw>
+<status status="PASS" start="2025-01-15T20:04:41.339832" elapsed="2.417398"/>
+</kw>
+<kw name="Click Customer Login" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:43.758079" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Customer Login')]'.</msg>
+<arg>${CUSTOMER_LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:43.757887" elapsed="0.045567"/>
+</kw>
+<doc>Clicks the Customer Login button.</doc>
+<status status="PASS" start="2025-01-15T20:04:43.757552" elapsed="0.046024"/>
+</kw>
+<kw name="Select Customer" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:43.804175" elapsed="0.212483"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:44.017059" level="INFO">Selecting options from selection list 'id=userSelect' by label Hermoine Granger.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<arg>${customer_name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.016839" elapsed="0.051103"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:44.068330" level="INFO">Clicking element 'xpath=//button[text()='Login']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.068119" elapsed="0.041910"/>
+</kw>
+<arg>Hermoine Granger</arg>
+<status status="PASS" start="2025-01-15T20:04:43.803891" elapsed="0.306247"/>
+</kw>
+<kw name="Perform Deposit" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DEPOSIT_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.110713" elapsed="0.214078"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:44.325196" level="INFO">Clicking element 'xpath=//button[contains(text(),'Deposit')]'.</msg>
+<arg>${DEPOSIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.324995" elapsed="0.037609"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DEPOSIT_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.362779" elapsed="0.215743"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:44.578975" level="INFO">Typing text '1000' into text field 'xpath=//input[@placeholder='amount']'.</msg>
+<arg>${DEPOSIT_INPUT}</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.578743" elapsed="0.059343"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:44.638446" level="INFO">Clicking element 'xpath=//button[text()='Deposit']'.</msg>
+<arg>${DEPOSIT_SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.638252" elapsed="0.044308"/>
+</kw>
+<arg>1000</arg>
+<status status="PASS" start="2025-01-15T20:04:44.110437" elapsed="0.572244"/>
+</kw>
+<kw name="Verify Transaction" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${TRANSACTION_SUCCESS_MESSAGE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.683256" elapsed="0.007244"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:44.702972" level="INFO">Element 'xpath=//span[contains(@class, 'error')]' contains text 'Deposit Successful'.</msg>
+<arg>${TRANSACTION_SUCCESS_MESSAGE}</arg>
+<arg>${amount}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.690680" elapsed="0.012391"/>
+</kw>
+<arg>Deposit Successful</arg>
+<status status="PASS" start="2025-01-15T20:04:44.682982" elapsed="0.020184"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-15T20:04:44.703499" elapsed="2.118133"/>
+</kw>
+<doc>Verify customer login and transactions (deposit and withdrawal).</doc>
+<status status="PASS" start="2025-01-15T20:04:41.339337" elapsed="5.482691"/>
+</test>
+<test id="s1-s1-t4" name="Test Customer Login And Withdraw" line="41">
+<kw name="Open Browser And Navigate To Login Page" owner="Common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:46.823984" level="INFO">Opening browser 'chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-15T20:04:46.823778" elapsed="1.818398"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-15T20:04:48.642364" elapsed="0.027089"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BANK_MANAGER_LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:48.669621" elapsed="0.217183"/>
+</kw>
+<status status="PASS" start="2025-01-15T20:04:46.823498" elapsed="2.063742"/>
+</kw>
+<kw name="Click Customer Login" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:48.888332" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Customer Login')]'.</msg>
+<arg>${CUSTOMER_LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:48.888104" elapsed="0.052475"/>
+</kw>
+<doc>Clicks the Customer Login button.</doc>
+<status status="PASS" start="2025-01-15T20:04:48.887687" elapsed="0.052996"/>
+</kw>
+<kw name="Select Customer" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:48.941176" elapsed="0.213677"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:49.155268" level="INFO">Selecting options from selection list 'id=userSelect' by label Hermoine Granger.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<arg>${customer_name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.155026" elapsed="0.046011"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:49.201440" level="INFO">Clicking element 'xpath=//button[text()='Login']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.201204" elapsed="0.044971"/>
+</kw>
+<arg>Hermoine Granger</arg>
+<status status="PASS" start="2025-01-15T20:04:48.940936" elapsed="0.305343"/>
+</kw>
+<kw name="Perform Withdrawal" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${WITHDRAWAL_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.246807" elapsed="0.214313"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:49.461554" level="INFO">Clicking element 'xpath=//button[contains(text(),'Withdrawl')]'.</msg>
+<arg>${WITHDRAWAL_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.461309" elapsed="0.037749"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${WITHDRAW_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.499224" elapsed="0.215542"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:49.715226" level="INFO">Typing text '500' into text field 'xpath=//input[@placeholder='amount']'.</msg>
+<arg>${WITHDRAW_INPUT}</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.714968" elapsed="0.060506"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:49.775834" level="INFO">Clicking element 'xpath=//button[text()='Withdraw']'.</msg>
+<arg>${WITHDRAW_SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.775638" elapsed="0.048666"/>
+</kw>
+<arg>500</arg>
+<status status="PASS" start="2025-01-15T20:04:49.246567" elapsed="0.577909"/>
+</kw>
+<kw name="Verify Transaction" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${TRANSACTION_SUCCESS_MESSAGE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.825064" elapsed="0.007456"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:49.849506" level="INFO">Element 'xpath=//span[contains(@class, 'error')]' contains text 'Transaction successful'.</msg>
+<arg>${TRANSACTION_SUCCESS_MESSAGE}</arg>
+<arg>${amount}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.832676" elapsed="0.016927"/>
+</kw>
+<arg>Transaction successful</arg>
+<status status="PASS" start="2025-01-15T20:04:49.824790" elapsed="0.024910"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-15T20:04:49.850066" elapsed="2.126768"/>
+</kw>
+<doc>Verify customer login and transactions (deposit and withdrawal).</doc>
+<status status="PASS" start="2025-01-15T20:04:46.822998" elapsed="5.154219"/>
+</test>
+<test id="s1-s1-t5" name="Test View And Reset Transactions" line="50">
+<kw name="Open Browser And Navigate To Login Page" owner="Common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:51.979326" level="INFO">Opening browser 'chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-15T20:04:51.979103" elapsed="1.820118"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-15T20:04:53.799385" elapsed="0.025957"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BANK_MANAGER_LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:53.825568" elapsed="0.217152"/>
+</kw>
+<status status="PASS" start="2025-01-15T20:04:51.978828" elapsed="2.064062"/>
+</kw>
+<kw name="Click Customer Login" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:54.043893" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Customer Login')]'.</msg>
+<arg>${CUSTOMER_LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.043664" elapsed="0.054116"/>
+</kw>
+<doc>Clicks the Customer Login button.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.043270" elapsed="0.054649"/>
+</kw>
+<kw name="Select Customer" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.098521" elapsed="0.213531"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:54.312510" level="INFO">Selecting options from selection list 'id=userSelect' by label Hermoine Granger.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<arg>${customer_name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.312270" elapsed="0.045090"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:54.357774" level="INFO">Clicking element 'xpath=//button[text()='Login']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.357554" elapsed="0.044719"/>
+</kw>
+<arg>Hermoine Granger</arg>
+<status status="PASS" start="2025-01-15T20:04:54.098243" elapsed="0.304135"/>
+</kw>
+<kw name="View Transactions" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${TRANSACTION_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.402915" elapsed="0.214294"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:54.617602" level="INFO">Clicking element 'xpath=//button[contains(text(),'Transactions')]'.</msg>
+<arg>${TRANSACTION_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.617396" elapsed="0.038523"/>
+</kw>
+<doc>Clicks the Transactions button to view transaction history.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.402701" elapsed="0.253369"/>
+</kw>
+<kw name="Verify Transactions Are Visible" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${TRANSACTION_TABLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.656552" elapsed="0.233141"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:54.908706" level="INFO">${rows} = 393</msg>
+<var>${rows}</var>
+<arg>${TRANSACTION_TABLE}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.889858" elapsed="0.018890"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${rows} &gt; 1</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.908884" elapsed="0.000188"/>
+</kw>
+<doc>Verify the transaction table is visible and contains rows.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.656328" elapsed="0.252803"/>
+</kw>
+<kw name="Reset Transactions" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:54.909737" level="INFO">Clicking element 'xpath=//button[text()='Reset']'.</msg>
+<arg>${RESET_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.909583" elapsed="0.044211"/>
+</kw>
+<doc>Resets the transaction table to its initial state.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.909378" elapsed="0.044525"/>
+</kw>
+<kw name="Verify Transactions Are Cleared" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${TRANSACTION_TABLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.954459" elapsed="0.005238"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:54.964031" level="INFO">${rows} = 1</msg>
+<var>${rows}</var>
+<arg>${TRANSACTION_TABLE}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.959869" elapsed="0.004194"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-01-15T20:04:54.964300" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${rows}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.964172" elapsed="0.000179"/>
+</kw>
+<doc>Verify the transaction table is cleared after reset.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.954251" elapsed="0.010205"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-15T20:04:54.964815" elapsed="2.149877"/>
+</kw>
+<doc>Verify that a customer can view and reset transactions.</doc>
+<status status="PASS" start="2025-01-15T20:04:51.978275" elapsed="5.136821"/>
+</test>
+<test id="s1-s1-t6" name="Test Invalid Customer Login" line="61">
+<kw name="Open Browser And Navigate To Login Page" owner="Common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:04:57.117220" level="INFO">Opening browser 'chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-15T20:04:57.117015" elapsed="2.650628"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-15T20:04:59.767812" elapsed="0.032351"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BANK_MANAGER_LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:04:59.800347" elapsed="0.419908"/>
+</kw>
+<status status="PASS" start="2025-01-15T20:04:57.116730" elapsed="3.103663"/>
+</kw>
+<kw name="Click Customer Login" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:00.221121" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Customer Login')]'.</msg>
+<arg>${CUSTOMER_LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:00.220952" elapsed="0.045913"/>
+</kw>
+<doc>Clicks the Customer Login button.</doc>
+<status status="PASS" start="2025-01-15T20:05:00.220712" elapsed="0.046257"/>
+</kw>
+<kw name="Attempt Invalid Customer Login" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:00.267558" elapsed="0.212156"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:00.480125" level="INFO">Selecting options from selection list 'id=userSelect' by index 0.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<arg>0</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2025-01-15T20:05:00.479890" elapsed="0.031967"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:00.512263" level="INFO">Clicking element 'xpath=//button[text()='Login']'.</msg>
+<msg time="2025-01-15T20:05:00.616425" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-50.png"&gt;&lt;img src="selenium-screenshot-50.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-01-15T20:05:00.616689" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6224C80D5+2992373]
+	(No symbol) [0x00007FF62215BFD0]
+	(No symbol) [0x00007FF621FF5739]
+	(No symbol) [0x00007FF62204A724]
+	(No symbol) [0x00007FF62203CD40]
+	(No symbol) [0x00007FF62206F36A]
+	(No symbol) [0x00007FF62203C596]
+	(No symbol) [0x00007FF62206F580]
+	(No symbol) [0x00007FF62208F584]
+	(No symbol) [0x00007FF62206F113]
+	(No symbol) [0x00007FF62203A918]
+	(No symbol) [0x00007FF62203BA81]
+	GetHandleVerifier [0x00007FF622526A2D+3379789]
+	GetHandleVerifier [0x00007FF62253C32D+3468109]
+	GetHandleVerifier [0x00007FF622530043+3418211]
+	GetHandleVerifier [0x00007FF6222BC78B+847787]
+	(No symbol) [0x00007FF62216757F]
+	(No symbol) [0x00007FF622162FC4]
+	(No symbol) [0x00007FF62216315D]
+	(No symbol) [0x00007FF622152979]
+	BaseThreadInitThunk [0x00007FFB32D0259D+29]
+	RtlUserThreadStart [0x00007FFB33A2AF38+40]
+</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-01-15T20:05:00.512041" elapsed="0.106942">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6224C80D5+2992373]
+	(No symbol) [0x00007FF62215BFD0]
+	(No symbol) [0x00007FF621FF5739]
+	(No symbol) [0x00007FF62204A724]
+	(No symbol) [0x00007FF62203CD40]
+	(No symbol) [0x00007FF62206F36A]
+	(No symbol) [0x00007FF62203C596]
+	(No symbol) [0x00007FF62206F580]
+	(No symbol) [0x00007FF62208F584]
+	(No symbol) [0x00007FF62206F113]
+	(No symbol) [0x00007FF62203A918]
+	(No symbol) [0x00007FF62203BA81]
+	GetHandleVerifier [0x00007FF622526A2D+3379789]
+	GetHandleVerifier [0x00007FF62253C32D+3468109]
+	GetHandleVerifier [0x00007FF622530043+3418211]
+	GetHandleVerifier [0x00007FF6222BC78B+847787]
+	(No symbol) [0x00007FF62216757F]
+	(No symbol) [0x00007FF622162FC4]
+	(No symbol) [0x00007FF62216315D]
+	(No symbol) [0x00007FF622152979]
+	BaseThreadInitThunk [0x00007FFB32D0259D+29]
+	RtlUserThreadStart [0x00007FFB33A2AF38+40]
+</status>
+</kw>
+<doc>Attempts login with an invalid customer name.</doc>
+<status status="FAIL" start="2025-01-15T20:05:00.267284" elapsed="0.351921">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6224C80D5+2992373]
+	(No symbol) [0x00007FF62215BFD0]
+	(No symbol) [0x00007FF621FF5739]
+	(No symbol) [0x00007FF62204A724]
+	(No symbol) [0x00007FF62203CD40]
+	(No symbol) [0x00007FF62206F36A]
+	(No symbol) [0x00007FF62203C596]
+	(No symbol) [0x00007FF62206F580]
+	(No symbol) [0x00007FF62208F584]
+	(No symbol) [0x00007FF62206F113]
+	(No symbol) [0x00007FF62203A918]
+	(No symbol) [0x00007FF62203BA81]
+	GetHandleVerifier [0x00007FF622526A2D+3379789]
+	GetHandleVerifier [0x00007FF62253C32D+3468109]
+	GetHandleVerifier [0x00007FF622530043+3418211]
+	GetHandleVerifier [0x00007FF6222BC78B+847787]
+	(No symbol) [0x00007FF62216757F]
+	(No symbol) [0x00007FF622162FC4]
+	(No symbol) [0x00007FF62216315D]
+	(No symbol) [0x00007FF622152979]
+	BaseThreadInitThunk [0x00007FFB32D0259D+29]
+	RtlUserThreadStart [0x00007FFB33A2AF38+40]
+</status>
+</kw>
+<kw name="Verify Login Failed" owner="Keywords">
+<doc>Verifies that login attempt failed due to invalid customer.</doc>
+<status status="NOT RUN" start="2025-01-15T20:05:00.619536" elapsed="0.000043"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-15T20:05:00.619872" elapsed="2.135548"/>
+</kw>
+<doc>Verify login attempt with invalid customer fails.</doc>
+<status status="FAIL" start="2025-01-15T20:04:57.116134" elapsed="5.639783">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6224C80D5+2992373]
+	(No symbol) [0x00007FF62215BFD0]
+	(No symbol) [0x00007FF621FF5739]
+	(No symbol) [0x00007FF62204A724]
+	(No symbol) [0x00007FF62203CD40]
+	(No symbol) [0x00007FF62206F36A]
+	(No symbol) [0x00007FF62203C596]
+	(No symbol) [0x00007FF62206F580]
+	(No symbol) [0x00007FF62208F584]
+	(No symbol) [0x00007FF62206F113]
+	(No symbol) [0x00007FF62203A918]
+	(No symbol) [0x00007FF62203BA81]
+	GetHandleVerifier [0x00007FF622526A2D+3379789]
+	GetHandleVerifier [0x00007FF62253C32D+3468109]
+	GetHandleVerifier [0x00007FF622530043+3418211]
+	GetHandleVerifier [0x00007FF6222BC78B+847787]
+	(No symbol) [0x00007FF62216757F]
+	(No symbol) [0x00007FF622162FC4]
+	(No symbol) [0x00007FF62216315D]
+	(No symbol) [0x00007FF622152979]
+	BaseThreadInitThunk [0x00007FFB32D0259D+29]
+	RtlUserThreadStart [0x00007FFB33A2AF38+40]
+</status>
+</test>
+<test id="s1-s1-t7" name="Test Insufficient Balance Withdrawal" line="69">
+<kw name="Open Browser And Navigate To Login Page" owner="Common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:02.758820" level="INFO">Opening browser 'chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-15T20:05:02.758590" elapsed="1.913978"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-15T20:05:04.672734" elapsed="0.033858"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BANK_MANAGER_LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:04.706878" elapsed="0.216516"/>
+</kw>
+<status status="PASS" start="2025-01-15T20:05:02.758275" elapsed="2.165267"/>
+</kw>
+<kw name="Click Customer Login" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:04.924300" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Customer Login')]'.</msg>
+<arg>${CUSTOMER_LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:04.924123" elapsed="0.051810"/>
+</kw>
+<doc>Clicks the Customer Login button.</doc>
+<status status="PASS" start="2025-01-15T20:05:04.923888" elapsed="0.052149"/>
+</kw>
+<kw name="Select Customer" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:04.976531" elapsed="0.212546"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:05.189461" level="INFO">Selecting options from selection list 'id=userSelect' by label Harry Potter.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<arg>${customer_name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.189241" elapsed="0.044476"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:05.234116" level="INFO">Clicking element 'xpath=//button[text()='Login']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.233905" elapsed="0.044865"/>
+</kw>
+<arg>Harry Potter</arg>
+<status status="PASS" start="2025-01-15T20:05:04.976304" elapsed="0.302573"/>
+</kw>
+<kw name="Perform Deposit" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DEPOSIT_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.279385" elapsed="0.213131"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:05.492925" level="INFO">Clicking element 'xpath=//button[contains(text(),'Deposit')]'.</msg>
+<arg>${DEPOSIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.492724" elapsed="0.038638"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DEPOSIT_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.531527" elapsed="0.215018"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:05.746963" level="INFO">Typing text '100' into text field 'xpath=//input[@placeholder='amount']'.</msg>
+<arg>${DEPOSIT_INPUT}</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.746729" elapsed="0.059385"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:05.806483" level="INFO">Clicking element 'xpath=//button[text()='Deposit']'.</msg>
+<arg>${DEPOSIT_SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.806289" elapsed="0.044930"/>
+</kw>
+<arg>100</arg>
+<status status="PASS" start="2025-01-15T20:05:05.279155" elapsed="0.572172"/>
+</kw>
+<kw name="Attempt Withdrawal" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${WITHDRAWAL_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.851811" elapsed="0.008684"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:05.860942" level="INFO">Clicking element 'xpath=//button[contains(text(),'Withdrawl')]'.</msg>
+<arg>${WITHDRAWAL_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.860721" elapsed="0.041277"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${TRANSACTION_SUCCESS_MESSAGE}</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-01-15T20:05:05.902196" elapsed="0.231759"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${WITHDRAW_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:06.134220" elapsed="0.004445"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:06.138935" level="INFO">Typing text '200' into text field 'xpath=//input[@placeholder='amount']'.</msg>
+<arg>${WITHDRAW_INPUT}</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:06.138773" elapsed="0.045475"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:06.184609" level="INFO">Clicking element 'xpath=//button[text()='Withdraw']'.</msg>
+<arg>${WITHDRAW_SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:06.184415" elapsed="0.041471"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2025-01-15T20:05:05.851585" elapsed="0.374405"/>
+</kw>
+<kw name="Verify Transaction Failed" owner="Keywords">
+<kw name="Element Text Should Contain">
+<msg time="2025-01-15T20:05:06.227852" level="FAIL">No keyword with name 'Element Text Should Contain' found. Did you mean:
+    SeleniumLibrary.Element Should Contain
+    SeleniumLibrary.Element Should Not Contain</msg>
+<arg>${TRANSACTION_SUCCESS_MESSAGE}</arg>
+<arg>Transaction Failed</arg>
+<status status="FAIL" start="2025-01-15T20:05:06.227814" elapsed="0.000077">No keyword with name 'Element Text Should Contain' found. Did you mean:
+    SeleniumLibrary.Element Should Contain
+    SeleniumLibrary.Element Should Not Contain</status>
+</kw>
+<doc>Verifies withdrawal fails due to insufficient balance.</doc>
+<status status="FAIL" start="2025-01-15T20:05:06.226254" elapsed="0.001730">No keyword with name 'Element Text Should Contain' found. Did you mean:
+    SeleniumLibrary.Element Should Contain
+    SeleniumLibrary.Element Should Not Contain</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-15T20:05:06.228202" elapsed="2.115107"/>
+</kw>
+<doc>Verify withdrawal fails if balance is insufficient.</doc>
+<status status="FAIL" start="2025-01-15T20:05:02.757754" elapsed="5.586026">No keyword with name 'Element Text Should Contain' found. Did you mean:
+    SeleniumLibrary.Element Should Contain
+    SeleniumLibrary.Element Should Not Contain</status>
+</test>
+<test id="s1-s1-t8" name="Test Sorting And Filtering In Transaction Table" line="79">
+<kw name="Open Browser And Navigate To Login Page" owner="Common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:08.346370" level="INFO">Opening browser 'chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-15T20:05:08.346161" elapsed="1.813831"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-15T20:05:10.160165" elapsed="0.018955"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BANK_MANAGER_LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:10.179378" elapsed="0.422192"/>
+</kw>
+<status status="PASS" start="2025-01-15T20:05:08.345880" elapsed="2.255799"/>
+</kw>
+<kw name="Click Customer Login" owner="Keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:10.602444" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Customer Login')]'.</msg>
+<arg>${CUSTOMER_LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:10.602250" elapsed="0.044772"/>
+</kw>
+<doc>Clicks the Customer Login button.</doc>
+<status status="PASS" start="2025-01-15T20:05:10.601975" elapsed="0.045151"/>
+</kw>
+<kw name="Select Customer" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:10.647749" elapsed="0.213093"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:10.861271" level="INFO">Selecting options from selection list 'id=userSelect' by label Hermoine Granger.</msg>
+<arg>${CUSTOMER_NAME_DROPDOWN}</arg>
+<arg>${customer_name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-01-15T20:05:10.861023" elapsed="0.044389"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:10.905830" level="INFO">Clicking element 'xpath=//button[text()='Login']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:10.905622" elapsed="0.044675"/>
+</kw>
+<arg>Hermoine Granger</arg>
+<status status="PASS" start="2025-01-15T20:05:10.647449" elapsed="0.302952"/>
+</kw>
+<kw name="Perform Deposit" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DEPOSIT_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:10.950940" elapsed="0.212779"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:11.164166" level="INFO">Clicking element 'xpath=//button[contains(text(),'Deposit')]'.</msg>
+<arg>${DEPOSIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.163940" elapsed="0.038611"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DEPOSIT_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.202731" elapsed="0.212939"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:11.416095" level="INFO">Typing text '1000' into text field 'xpath=//input[@placeholder='amount']'.</msg>
+<arg>${DEPOSIT_INPUT}</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.415836" elapsed="0.058298"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:11.474514" level="INFO">Clicking element 'xpath=//button[text()='Deposit']'.</msg>
+<arg>${DEPOSIT_SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.474306" elapsed="0.045839"/>
+</kw>
+<arg>1000</arg>
+<status status="PASS" start="2025-01-15T20:05:10.950713" elapsed="0.569540"/>
+</kw>
+<kw name="Perform Withdrawal" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${WITHDRAWAL_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.520783" elapsed="0.007723"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:11.528924" level="INFO">Clicking element 'xpath=//button[contains(text(),'Withdrawl')]'.</msg>
+<arg>${WITHDRAWAL_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.528706" elapsed="0.039215"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${WITHDRAW_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.568087" elapsed="0.004643"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:11.573162" level="INFO">Typing text '500' into text field 'xpath=//input[@placeholder='amount']'.</msg>
+<arg>${WITHDRAW_INPUT}</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.572885" elapsed="0.047924"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-15T20:05:11.621176" level="INFO">Clicking element 'xpath=//button[text()='Withdraw']'.</msg>
+<msg time="2025-01-15T20:05:11.776247" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-51.png"&gt;&lt;img src="selenium-screenshot-51.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-01-15T20:05:11.776399" level="FAIL">Element with locator 'xpath=//button[text()='Withdraw']' not found.</msg>
+<arg>${WITHDRAW_SUBMIT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-01-15T20:05:11.620975" elapsed="0.157123">Element with locator 'xpath=//button[text()='Withdraw']' not found.</status>
+</kw>
+<arg>500</arg>
+<status status="FAIL" start="2025-01-15T20:05:11.520528" elapsed="0.257695">Element with locator 'xpath=//button[text()='Withdraw']' not found.</status>
+</kw>
+<kw name="View Transactions" owner="Keywords">
+<doc>Clicks the Transactions button to view transaction history.</doc>
+<status status="NOT RUN" start="2025-01-15T20:05:11.778542" elapsed="0.000040"/>
+</kw>
+<kw name="Verify Transaction Sorting" owner="Keywords">
+<doc>Verifies transactions are sorted in descending order.</doc>
+<status status="NOT RUN" start="2025-01-15T20:05:11.778797" elapsed="0.000039"/>
+</kw>
+<kw name="Filter Transactions By Type" owner="Keywords">
+<arg>Credit</arg>
+<doc>Filters transactions by the specified type (Credit/Debit).</doc>
+<status status="NOT RUN" start="2025-01-15T20:05:11.778993" elapsed="0.000027"/>
+</kw>
+<kw name="Verify Filtered Transactions" owner="Keywords">
+<arg>Credit</arg>
+<doc>Verifies transactions are filtered by the specified type.</doc>
+<status status="NOT RUN" start="2025-01-15T20:05:11.779199" elapsed="0.000027"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-15T20:05:11.779573" elapsed="2.119542"/>
+</kw>
+<doc>Verify sorting and filtering in transaction table works correctly.</doc>
+<status status="FAIL" start="2025-01-15T20:05:08.345277" elapsed="5.554289">Element with locator 'xpath=//button[text()='Withdraw']' not found.</status>
+</test>
+<doc>Test Suite for GlobalSQA Banking Project</doc>
+<status status="FAIL" start="2025-01-15T20:04:31.215044" elapsed="42.686041"/>
+</suite>
+<status status="FAIL" start="2025-01-15T20:04:31.194336" elapsed="42.707881"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Login</stat>
+</tag>
+<suite>
+<stat name="Customer" id="s1" pass="5" fail="3" skip="0">Customer</stat>
+<stat name="CustomerTests" id="s1-s1" pass="5" fail="3" skip="0">Customer.CustomerTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
