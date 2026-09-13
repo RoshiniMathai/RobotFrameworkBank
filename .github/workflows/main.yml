@@ -71,9 +71,9 @@ jobs:
       run: |
         # Explicitly tells the execution suite to trigger tests against the Staging environment configuration
         robot --variable ENVIRONMENT:staging --variable BROWSER:headlesschrome --outputdir robot-results .
+ 
 
-
-    # 8. Save the generated Robot Framework HTML reports to Azure Blob Storage
+        # 8. Save the generated Robot Framework HTML reports to Azure Blob Storage
     - name: Archive QA Test Reports to Azure Storage
       if: always() # Crucial: Runs even if your Robot tests fail so you can see why they failed
       run: |
@@ -84,8 +84,34 @@ jobs:
         az storage account create --name $CLEAN_STORAGE_NAME --resource-group AzureQARg --location eastus --sku Standard_LRS
         az storage container create --name robot-html-reports --account-name $CLEAN_STORAGE_NAME
         
-        # Upload log.html, report.html, and output.xml to Azure Storage
-        az storage blob upload-batch --source ./robot-results --destination robot-html-reports --account-name $CLEAN_STORAGE_NAME
+        # Create robot-results directory if it doesn't exist
+        mkdir -p ./robot-results
+        
+        # Upload log.html, report.html, and output.xml to Azure Storage (only if files exist)
+        if [ -n "$(ls -A ./robot-results 2>/dev/null)" ]; then
+          az storage blob upload-batch --source ./robot-results --destination robot-html-reports --account-name $CLEAN_STORAGE_NAME
+        else
+          echo "No test results found to upload"
+        fi
+    
+    
+    
+    
+    
+    
+    # 8. Save the generated Robot Framework HTML reports to Azure Blob Storage
+    #- name: Archive QA Test Reports to Azure Storage
+    #  if: always() # Crucial: Runs even if your Robot tests fail so you can see why they failed
+    #  run: |
+    #    STORAGE_NAME="qareports${{ github.run_id }}"
+    #    # Normalize name to valid alphanumeric format for Azure compatibility
+    #    CLEAN_STORAGE_NAME=$(echo "$STORAGE_NAME" | tr -cd 'a-z0-9' | cut -c1-24)
+        
+    #    az storage account create --name $CLEAN_STORAGE_NAME --resource-group AzureQARg --location eastus --sku Standard_LRS
+    #    az storage container create --name robot-html-reports --account-name $CLEAN_STORAGE_NAME
+        
+    #    # Upload log.html, report.html, and output.xml to Azure Storage
+    #    az storage blob upload-batch --source ./robot-results --destination robot-html-reports --account-name $CLEAN_STORAGE_NAME
 
     # 9. Tear down the environment completely to keep your $200 Azure credit safe
     - name: Cleanup Azure Resources (Cost Protection)
