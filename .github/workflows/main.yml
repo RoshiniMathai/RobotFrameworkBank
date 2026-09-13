@@ -37,7 +37,7 @@ jobs:
           if az container create \
             --resource-group AzureQARg \
             --name qa-staging-app \
-            --image nginx:latest \
+            --image mcr.microsoft.com/windows/servercore:ltsc2022  # Microsoft Container Registry \
             --os-type Linux \
             --cpu 1 \
             --memory 1 \
