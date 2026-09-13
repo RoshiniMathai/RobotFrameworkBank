@@ -47,9 +47,21 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
+        
+        # Clear any cached webdriver files to ensure fresh download
+        rm -rf ~/.wdm
+        
+        # Install packages
         pip install robotframework robotframework-seleniumlibrary webdriver-manager
-        python -c "from webdriver_manager.chrome import ChromeDriverManager; ChromeDriverManager().install()"
         pip install --upgrade selenium
+        
+        # Force ChromeDriver download AFTER Chrome is installed
+        python << 'EOF'
+        from webdriver_manager.chrome import ChromeDriverManager
+        driver_path = ChromeDriverManager().install()
+        print(f"ChromeDriver installed at: {driver_path}")
+        EOF
+        
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     # 6. Run your Robot Framework tests specifying the environment target
