@@ -35,6 +35,7 @@ jobs:
           --resource-group AzureQARg \
           --name qa-staging-app \
           --image nginx:latest \
+          --os-type Linux \
           --ports 80 \
           --dns-name-label qa-env-${{ github.run_id }}
 
