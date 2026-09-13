@@ -1,6 +1,6 @@
 *** Settings ***
 Library         SeleniumLibrary
-Variables        ../../config.py
+Variables        ../config.py
 
 *** Keywords ***
 Open Browser And Navigate To Login Page
