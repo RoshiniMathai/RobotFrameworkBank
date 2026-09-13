@@ -36,6 +36,8 @@ jobs:
           --name qa-staging-app \
           --image nginx:latest \
           --os-type Linux \
+          --cpu 1 \
+          --memory 1 \
           --ports 80 \
           --dns-name-label qa-env-${{ github.run_id }}
 
