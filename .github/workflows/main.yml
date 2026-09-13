@@ -53,6 +53,13 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
 
+        # Remove old system chromedriver to avoid conflicts
+        sudo rm -f /usr/bin/chromedriver
+        
+        # Start virtual display for headed mode
+        export DISPLAY=:99
+        sudo Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+
     # 6. Install Robot Framework and Selenium Library dependencies
     - name: Install Dependencies
       run: |
@@ -71,6 +78,8 @@ jobs:
 
       # 7. Run your Robot Framework tests specifying the environment target
     - name: Run Robot Framework Test Suite
+      env:
+        DISPLAY: :99
       run: |
         # Explicitly tells the execution suite to trigger tests against the Staging environment configuration
         robot --variable ENVIRONMENT:staging --variable BROWSER:chrome --outputdir robot-results .
