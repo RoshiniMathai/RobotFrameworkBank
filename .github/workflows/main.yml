@@ -1,0 +1,94 @@
+name: Robot Framework Azure Shift-Left Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  infrastructure-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    
+    # 1. Pull your existing Robot Framework repository code
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Log in securely to Azure using OpenID Connect (OIDC)
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    # 3. Spin up an Azure Container Instance dynamically to act as your staging test environment
+    - name: Create Dynamic Azure Test Environment
+      run: |
+        az group create --name AzureQARg --location eastus
+        az container create \
+          --resource-group AzureQARg \
+          --name qa-staging-app \
+          --image ://microsoft.com \
+          --ports 80 \
+          --dns-name-label qa-env-${{ github.run_id }}
+
+    # 4. Set up Python environment inside the GitHub runner
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    # 5. Pre-install Google Chrome dependencies required for headless Linux execution
+    - name: Setup Chrome for Headless Testing
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+
+    # 6. Install Robot Framework and Selenium Library dependencies
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install robotframework robotframework-seleniumlibrary webdriver-manager
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # 7. Run your EXISTING Robot Framework tests against the site variable
+    #- name: Run Robot Framework Test Suite
+    #  env:
+    #    # We pass the XYZ Bank testing site target URL here
+    #    TARGET_URL: "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login"
+    #  run: |
+    #    # Injects the variable directly into your .robot file execution at runtime
+    #   robot --variable URL:${{ env.TARGET_URL }} --outputdir robot-results .
+
+      # 7. Run your Robot Framework tests specifying the environment target
+    - name: Run Robot Framework Test Suite
+      run: |
+        # Explicitly tells the execution suite to trigger tests against the Staging environment configuration
+        robot --variable ENVIRONMENT:staging --variable BROWSER:headlesschrome --outputdir robot-results .
+
+
+    # 8. Save the generated Robot Framework HTML reports to Azure Blob Storage
+    - name: Archive QA Test Reports to Azure Storage
+      if: always() # Crucial: Runs even if your Robot tests fail so you can see why they failed
+      run: |
+        STORAGE_NAME="qareports${{ github.run_id }}"
+        # Normalize name to valid alphanumeric format for Azure compatibility
+        CLEAN_STORAGE_NAME=$(echo "$STORAGE_NAME" | tr -cd 'a-z0-9' | cut -c1-24)
+        
+        az storage account create --name $CLEAN_STORAGE_NAME --resource-group AzureQARg --location eastus --sku Standard_LRS
+        az storage container create --name robot-html-reports --account-name $CLEAN_STORAGE_NAME
+        
+        # Upload log.html, report.html, and output.xml to Azure Storage
+        az storage blob upload-batch --source ./robot-results --destination robot-html-reports --account-name $CLEAN_STORAGE_NAME
+
+    # 9. Tear down the environment completely to keep your $200 Azure credit safe
+    - name: Cleanup Azure Resources (Cost Protection)
+      if: always() # Always runs to prevent resource leaks and save your budget
+      run: |
+        az group delete --name AzureQARg --yes --no-wait
