@@ -73,7 +73,7 @@ jobs:
     - name: Run Robot Framework Test Suite
       run: |
         # Explicitly tells the execution suite to trigger tests against the Staging environment configuration
-        robot --variable ENVIRONMENT:staging --variable BROWSER:headlesschrome --outputdir robot-results .
+        robot --variable ENVIRONMENT:staging --variable BROWSER:chrome --outputdir robot-results .
  
 
         # 8. Save the generated Robot Framework HTML reports to Azure Blob Storage
