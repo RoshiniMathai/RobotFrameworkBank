@@ -34,7 +34,7 @@ jobs:
         az container create \
           --resource-group AzureQARg \
           --name qa-staging-app \
-          --image ://microsoft.com \
+          --image nginx:latest \
           --ports 80 \
           --dns-name-label qa-env-${{ github.run_id }}
 
