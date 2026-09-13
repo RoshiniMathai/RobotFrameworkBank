@@ -58,13 +58,20 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     # 7. Run your EXISTING Robot Framework tests against the site variable
+    #- name: Run Robot Framework Test Suite
+    #  env:
+    #    # We pass the XYZ Bank testing site target URL here
+    #    TARGET_URL: "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login"
+    #  run: |
+    #    # Injects the variable directly into your .robot file execution at runtime
+    #   robot --variable URL:${{ env.TARGET_URL }} --outputdir robot-results .
+
+      # 7. Run your Robot Framework tests specifying the environment target
     - name: Run Robot Framework Test Suite
-      env:
-        # We pass the XYZ Bank testing site target URL here
-        TARGET_URL: "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login"
       run: |
-        # Injects the variable directly into your .robot file execution at runtime
-        robot --variable URL:${{ env.TARGET_URL }} --outputdir robot-results .
+        # Explicitly tells the execution suite to trigger tests against the Staging environment configuration
+        robot --variable ENVIRONMENT:staging --variable BROWSER:headlesschrome --outputdir robot-results .
+
 
     # 8. Save the generated Robot Framework HTML reports to Azure Blob Storage
     - name: Archive QA Test Reports to Azure Storage
