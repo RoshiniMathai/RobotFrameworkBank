@@ -69,6 +69,8 @@ jobs:
       env:
         DISPLAY: :99
       run: |
+        # Remove old chromedriver
+        sudo rm -f /usr/bin/chromedriver
         robot --variable ENVIRONMENT:staging --variable BROWSER:chrome --outputdir robot-results .
 
     # 7. Save the generated Robot Framework HTML reports to Azure Blob Storage
