@@ -55,9 +55,27 @@ jobs:
         pip install robotframework robotframework-seleniumlibrary webdriver-manager
         pip install --upgrade selenium
         
-        # Force ChromeDriver download AFTER Chrome is installed
+        # Get installed Chrome version
+        CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d. -f1)
+        echo "Installed Chrome version: $CHROME_VERSION"
+        
+        # Download matching ChromeDriver
         python << 'EOF'
+        import subprocess
+        import re
+        
+        # Get Chrome version
+        result = subprocess.run(['google-chrome', '--version'], capture_output=True, text=True)
+        chrome_version = result.stdout.strip().split()[-1]
+        major_version = chrome_version.split('.')[0]
+        
+        print(f"Chrome version: {chrome_version}")
+        print(f"Major version: {major_version}")
+        
+        # Use webdriver-manager to get matching driver
         from webdriver_manager.chrome import ChromeDriverManager
+        from webdriver_manager.core.driver_cache import DriverCacheManager
+        
         driver_path = ChromeDriverManager().install()
         print(f"ChromeDriver installed at: {driver_path}")
         EOF
@@ -69,8 +87,6 @@ jobs:
       env:
         DISPLAY: :99
       run: |
-        # Remove old chromedriver
-        sudo rm -f /usr/bin/chromedriver
         robot --variable ENVIRONMENT:staging --variable BROWSER:chrome --outputdir robot-results .
 
     # 7. Save the generated Robot Framework HTML reports to Azure Blob Storage
